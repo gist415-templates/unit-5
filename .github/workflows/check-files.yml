@@ -1,4 +1,4 @@
-name: Check Unit 6 Submission
+name: Check Unit 5 Submission
 
 on:
   pull_request:
@@ -15,8 +15,8 @@ jobs:
       - uses: actions/github-script@v7
         with:
           script: |
-            const UNIT = 6;
-            const EXPECTED_BRANCH = 'unit-6-work';
+            const UNIT = 5;
+            const EXPECTED_BRANCH = 'unit-5-work';
             const PLACEHOLDER = '_Your answer here._';
             const ASSIGNMENTS = [
               { title: "Assignment 1: Introduction to Docker", files: ["assignment-1/unit6-postgis-volume.png"] },

@@ -1,6 +1,6 @@
-# Unit 6 — Submission
+# Unit 5 — Submission
 
-All of your Unit 6 written answers go in this file. Replace every `_Your answer here._` with your own answer, and commit to your `unit-6-work` branch after each assignment.
+All of your Unit 5 written answers go in this file. Replace every `_Your answer here._` with your own answer, and commit to your `unit-5-work` branch after each assignment.
 
 Screenshots and other files go in each assignment's `assignment-N/` folder, using the exact file names below. Screenshots then appear in this file automatically when you view it on GitHub.
 
@@ -10,7 +10,7 @@ Screenshots and other files go in each assignment's `assignment-N/` folder, usin
 
 Answer all five questions. Answers are graded for depth and application to geospatial work.
 
-**Q1:** Why use Docker for geospatial work? Think about your experience with Jupyter in Units 4–5, and now databases.
+**Q1:** Why use Docker for geospatial work? Think about your experience with Jupyter in Units 3–4, and now databases.
 
 _Your answer here._
 
@@ -18,7 +18,7 @@ _Your answer here._
 
 _Your answer here._
 
-**Q3:** Walk through building and running a Python environment in Docker. Describe what you did in Units 4–5.
+**Q3:** Walk through building and running a Python environment in Docker. Describe what you did in Units 3–4.
 
 _Your answer here._
 

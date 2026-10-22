@@ -1,4 +1,4 @@
-FROM postgis/postgis:15-3.3
+FROM postgis/postgis:18-3.6-alpine
 
 ENV POSTGRES_PASSWORD=postgres
 ENV POSTGRES_DB=nyc

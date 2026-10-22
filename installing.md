@@ -12,10 +12,10 @@ These notes walk through getting the PostGIS NYC workshop environment running in
 ## Step 1 — Pull the PostGIS Image
 
 ```bash
-docker pull postgis/postgis
+docker pull postgis/postgis:18-3.6-alpine
 ```
 
-This downloads the official PostGIS image (~400 MB). Only needed once.
+This downloads the official PostGIS image (about 240 MB). Only needed once. The tag after the colon pins PostgreSQL 18 with PostGIS 3.6; use the full name in every command.
 
 ---
 
@@ -25,13 +25,13 @@ Choose a location on your machine to persist the database:
 
 **Windows (PowerShell):**
 ```powershell
-$DATA_DIR = "C:\gist415\postgres_data"
+$DATA_DIR = "C:/gist415_data/postgres_data"
 New-Item -ItemType Directory -Force $DATA_DIR
 ```
 
 **Mac/Linux:**
 ```bash
-DATA_DIR=~/gist415/postgres_data
+DATA_DIR=~/gist415_data/postgres_data
 mkdir -p $DATA_DIR
 ```
 
@@ -41,21 +41,15 @@ mkdir -p $DATA_DIR
 
 **Windows (PowerShell):**
 ```powershell
-docker run -d --name postgis `
-  -e POSTGRES_PASSWORD=postgres `
-  -v "${DATA_DIR}:/var/lib/postgresql/data" `
-  -p 25432:5432 `
-  postgis/postgis
+docker run -d --name postgis -e POSTGRES_PASSWORD=postgres -v "${DATA_DIR}:/var/lib/postgresql" -p 25432:5432 postgis/postgis:18-3.6-alpine
 ```
 
 **Mac/Linux:**
 ```bash
-docker run -d --name postgis \
-  -e POSTGRES_PASSWORD=postgres \
-  -v "$DATA_DIR:/var/lib/postgresql/data" \
-  -p 25432:5432 \
-  postgis/postgis
+docker run -d --name postgis -e POSTGRES_PASSWORD=postgres -v "$DATA_DIR:/var/lib/postgresql" -p 25432:5432 postgis/postgis:18-3.6-alpine
 ```
+
+Never change the part after the colon: PostgreSQL 18 keeps its data under `/var/lib/postgresql` and stops at startup if the volume is mounted at the old `/var/lib/postgresql/data`.
 
 Wait ~10 seconds for PostgreSQL to initialize, then verify:
 ```bash

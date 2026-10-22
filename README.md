@@ -47,20 +47,20 @@ You work on **one branch** and open **one Pull Request** for the whole unit.
 
 ## Quick Docker Reference
 
+Each command is one line, so it works the same in PowerShell and in the Mac Terminal. Always use the image name with its tag, `postgis/postgis:18-3.6-alpine`: the tag pins PostgreSQL 18 and PostGIS 3.6, and this build includes `shp2pgsql`.
+
 ```bash
 # Pull PostGIS image
-docker pull postgis/postgis
+docker pull postgis/postgis:18-3.6-alpine
 
-# Run with persistent volume (replace $DATA_DIR with your path)
-docker run -d --name postgis \
-  -e POSTGRES_PASSWORD=postgres \
-  -v $DATA_DIR/postgres_data/data:/var/lib/postgresql/data \
-  -p 25432:5432 \
-  postgis/postgis
+# Run with persistent volume (replace $DATA_DIR with your path, e.g. C:/gist415_data)
+docker run -d --name postgis -e POSTGRES_PASSWORD=postgres -v $DATA_DIR/postgres_data:/var/lib/postgresql -p 25432:5432 postgis/postgis:18-3.6-alpine
 
 # Create shared network
 docker network create gist415
 ```
+
+Never change the part after the colon in `-v`: PostgreSQL 18 keeps its data under `/var/lib/postgresql`, in a `18/docker` subfolder.
 
 ## Automated Checker
 
